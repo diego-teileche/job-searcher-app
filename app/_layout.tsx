@@ -4,17 +4,18 @@ import {
 	DefaultTheme,
 	ThemeProvider,
 } from "@react-navigation/native"
-import { useFonts } from "expo-font"
 import { Stack } from "expo-router"
+import { useFonts } from "expo-font"
 import * as SplashScreen from "expo-splash-screen"
 import { useEffect } from "react"
-
 import { useColorScheme } from "@/components/useColorScheme"
+import { COLORS, icons } from "@/constants"
+import ScreenHeaderBtn from "@/components/common/header/ScreenHeaderBtn"
+import { StatusBar } from "expo-status-bar"
 
 export { ErrorBoundary } from "expo-router"
-
 export const unstable_settings = {
-	initialRouteName: "(tabs)",
+	initialRouteName: "index",
 }
 
 SplashScreen.preventAutoHideAsync()
@@ -48,8 +49,20 @@ function RootLayoutNav() {
 	return (
 		<ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
 			<Stack>
-				<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-				<Stack.Screen name="modal" options={{ presentation: "modal" }} />
+				<Stack.Screen
+					name="index"
+					options={{
+						headerStyle: { backgroundColor: COLORS.lightWhite },
+						headerShadowVisible: false,
+						headerLeft: () => (
+							<ScreenHeaderBtn iconUrl={icons.menu} dimension="60%" />
+						),
+						headerRight: () => (
+							<ScreenHeaderBtn iconUrl={icons.profile} dimension="100%" />
+						),
+						headerTitle: "",
+					}}
+				/>
 			</Stack>
 		</ThemeProvider>
 	)
