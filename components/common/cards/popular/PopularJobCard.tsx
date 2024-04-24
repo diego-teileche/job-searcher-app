@@ -5,6 +5,7 @@ import styles, {
 	jobName,
 	logoContainer,
 } from "./PopularJobCard.styles"
+import { checkImageURL } from "@/utils"
 
 type PopularJobCardProps = {
 	item: any
@@ -18,13 +19,14 @@ const PopularJobCard: React.FC<PopularJobCardProps> = ({
 	handleCardPress,
 }) => {
 	return (
-		<TouchableOpacity
-			style={container(selectedJob, item)}
-			// onPress={() => handleCardPress(item)}
-		>
+		<TouchableOpacity style={container(selectedJob, item)}>
 			<TouchableOpacity style={logoContainer(selectedJob, item)}>
 				<Image
-					source={{ uri: item.employer_logo }}
+					source={{
+						uri: checkImageURL(item.employer_logo)
+							? item.employer_logo
+							: "https://cdn.icon-icons.com/icons2/1494/PNG/512/user_102890.png",
+					}}
 					resizeMode="contain"
 					style={styles.logoImage}
 				/>
