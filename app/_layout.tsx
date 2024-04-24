@@ -11,7 +11,6 @@ import { useEffect } from "react"
 import { useColorScheme } from "@/components/useColorScheme"
 import { COLORS, icons } from "@/constants"
 import ScreenHeaderBtn from "@/components/common/header/ScreenHeaderBtn"
-import { StatusBar } from "expo-status-bar"
 
 export { ErrorBoundary } from "expo-router"
 export const unstable_settings = {
