@@ -1,8 +1,10 @@
-import { StyleSheet } from "react-native"
+import { ImageStyle, StyleSheet, TextStyle, ViewStyle } from "react-native"
 
-import { COLORS, FONT, SHADOWS, SIZES } from "@/constants"
+import { COLORS, SHADOWS, SIZES } from "@/constants"
 
-export const container = (selectedJob: any, item: any) => ({
+type TabStyle = ViewStyle | ImageStyle | TextStyle
+
+export const container = (selectedJob: any, item: any): TabStyle => ({
 	width: 250,
 	padding: SIZES.xLarge,
 	backgroundColor: selectedJob === item.job_id ? COLORS.primary : "#FFF",
@@ -12,7 +14,7 @@ export const container = (selectedJob: any, item: any) => ({
 	shadowColor: COLORS.white,
 })
 
-export const logoContainer = (selectedJob: any, item: any) => ({
+export const logoContainer = (selectedJob: any, item: any): TabStyle => ({
 	width: 50,
 	height: 50,
 	backgroundColor: selectedJob === item.job_id ? "#FFF" : COLORS.white,
@@ -21,15 +23,13 @@ export const logoContainer = (selectedJob: any, item: any) => ({
 	alignItems: "center",
 })
 
-export const jobName = (selectedJob: any, item: any) => ({
+export const jobName = (selectedJob: any, item: any): TabStyle => ({
 	fontSize: SIZES.large,
-	fontFamily: FONT.medium,
 	color: selectedJob === item.job_id ? COLORS.white : COLORS.primary,
 })
 
-export const publisher = (selectedJob: any, item: any) => ({
+export const publisher = (selectedJob: any, item: any): TabStyle => ({
 	fontSize: SIZES.medium - 2,
-	fontFamily: FONT.regular,
 	color: selectedJob === item.job_id ? COLORS.white : COLORS.primary,
 })
 
@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
 	},
 	companyName: {
 		fontSize: SIZES.medium,
-		fontFamily: FONT.regular,
 		color: "#B3AEC6",
 		marginTop: SIZES.small / 1.5,
 	},
@@ -55,7 +54,6 @@ const styles = StyleSheet.create({
 	},
 	location: {
 		fontSize: SIZES.medium - 2,
-		fontFamily: FONT.regular,
 		color: "#B3AEC6",
 	},
 })
