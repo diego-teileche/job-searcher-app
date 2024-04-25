@@ -4,7 +4,7 @@ import {
 	DefaultTheme,
 	ThemeProvider,
 } from "@react-navigation/native"
-import { Stack } from "expo-router"
+import { Stack, useRouter } from "expo-router"
 import { useFonts } from "expo-font"
 import * as SplashScreen from "expo-splash-screen"
 import { useEffect } from "react"
@@ -44,6 +44,7 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
 	const colorScheme = useColorScheme()
+	const router = useRouter()
 
 	return (
 		<ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
@@ -58,6 +59,25 @@ function RootLayoutNav() {
 						),
 						headerRight: () => (
 							<ScreenHeaderBtn iconUrl={icons.profile} dimension="100%" />
+						),
+						headerTitle: "",
+					}}
+				/>
+				<Stack.Screen
+					name="job-details/[id]"
+					options={{
+						headerStyle: { backgroundColor: COLORS.lightWhite },
+						headerShadowVisible: false,
+						headerBackVisible: false,
+						headerLeft: () => (
+							<ScreenHeaderBtn
+								iconUrl={icons.left}
+								dimension="60%"
+								handlePress={() => router.back()}
+							/>
+						),
+						headerRight: () => (
+							<ScreenHeaderBtn iconUrl={icons.share} dimension="60%" />
 						),
 						headerTitle: "",
 					}}
