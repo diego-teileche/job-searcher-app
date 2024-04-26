@@ -18,7 +18,7 @@ export default function Welcome() {
 	const [activeJobType, setActiveJobType] = useState("Full-time")
 
 	return (
-		<View>
+		<>
 			<View style={styles.container}>
 				<Text style={styles.userName}>Hello Diego</Text>
 				<Text style={styles.welcomeMessage}>Find your perfect job</Text>
@@ -60,6 +60,6 @@ export default function Welcome() {
 					horizontal
 				/>
 			</View>
-		</View>
+		</>
 	)
 }

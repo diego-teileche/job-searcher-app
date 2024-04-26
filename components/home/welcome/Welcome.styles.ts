@@ -1,6 +1,6 @@
 import { ImageStyle, StyleSheet, TextStyle, ViewStyle } from "react-native"
 
-import { COLORS, SIZES } from "../../../constants"
+import { COLORS, SIZES } from "@/constants"
 
 type TabStyle = ViewStyle | ImageStyle | TextStyle
 
@@ -19,6 +19,7 @@ export const getTabText = (activeJobType: any, item: any): TabStyle => ({
 const styles = StyleSheet.create({
 	container: {
 		width: "100%",
+		marginTop: 45,
 	},
 	userName: {
 		fontSize: SIZES.large,

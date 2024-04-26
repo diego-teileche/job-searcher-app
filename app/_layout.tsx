@@ -54,13 +54,15 @@ function RootLayoutNav() {
 					options={{
 						headerStyle: { backgroundColor: COLORS.lightWhite },
 						headerShadowVisible: false,
+						headerBackVisible: false,
+						headerTransparent: true,
+						headerTitle: "",
 						headerLeft: () => (
 							<ScreenHeaderBtn iconUrl={icons.menu} dimension="60%" />
 						),
 						headerRight: () => (
 							<ScreenHeaderBtn iconUrl={icons.profile} dimension="100%" />
 						),
-						headerTitle: "",
 					}}
 				/>
 				<Stack.Screen
@@ -69,6 +71,8 @@ function RootLayoutNav() {
 						headerStyle: { backgroundColor: COLORS.lightWhite },
 						headerShadowVisible: false,
 						headerBackVisible: false,
+						headerTransparent: true,
+						headerTitle: "",
 						headerLeft: () => (
 							<ScreenHeaderBtn
 								iconUrl={icons.left}
@@ -79,7 +83,6 @@ function RootLayoutNav() {
 						headerRight: () => (
 							<ScreenHeaderBtn iconUrl={icons.share} dimension="60%" />
 						),
-						headerTitle: "",
 					}}
 				/>
 			</Stack>
